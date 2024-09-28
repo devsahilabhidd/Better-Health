@@ -11,7 +11,7 @@ export const UserChat = ({
     <div className="max-w-[80%] bg-gray-1 border rounded-lg">
       {
         parts.map((part, index) => {
-          if (part.fileData) {
+          if (part.fileData && part.fileData.fileUri) {
             return (
               <Image
                 key={index + part.fileData.fileUri}
@@ -26,7 +26,7 @@ export const UserChat = ({
 
           if (part.text && part.text !== "") {
             return (
-              <div key={index} className="-mt-4">
+              <div key={index}>
                 <MarkdownContent
                   markdown={parts.map((part) => part.text).join("\n")}
                 />
