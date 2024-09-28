@@ -27,7 +27,7 @@ import { ChatType, Sender } from '@/lib/types/chat';
 import { useRouter } from 'next/navigation';
 
 const DietPlanFormSchema = z.object({
-  age: z.coerce.number().min(6, { message: "Age must be at least 6" }).max(70, { message: "Age must be no more than 70" }),
+  age: z.coerce.number().min(6, { message: "Age must be at least 6" }).max(100, { message: "Age must be no more than 100" }),
   weight: z.coerce.number().positive({ message: "Weight must be a positive number" }),
   height: z.coerce.number().positive({ message: "Height must be a positive number" }),
   gender: z.enum([
@@ -135,8 +135,21 @@ const MultiPageForm = () => {
     router.push(`/chat?id=${chatId}`);
   };
 
-  const nextPage = () => {
-    setPage((prev) => Math.min(prev + 1, 2));
+  const validateCurrentPage = async () => {
+    const fieldsToValidate: (keyof DietPlanFormValues)[] =
+      page === 0
+        ? ['age', 'weight', 'height', 'gender']
+        : page === 1
+          ? ['goal', 'targetWeight', 'targetTime']
+          : ['preference'];
+
+    const result = await form.trigger(fieldsToValidate);
+    return result;
+  };
+
+  const nextPage = async () => {
+    const isValid = await validateCurrentPage();
+    if (isValid) setPage((prev) => Math.min(prev + 1, 2));
   };
 
   const prevPage = () => {
@@ -263,7 +276,7 @@ const MultiPageForm = () => {
                     <Input placeholder="Enter target weight" {...form.register('targetWeight')} />
                   </FormControl>
                   <FormDescription>
-                    Estimated weight you want to achieve in kilograms.
+                    Estimated weight you want to achieve. (in kilograms)
                   </FormDescription>
                   <FormMessage />
                 </FormItem>
@@ -279,7 +292,7 @@ const MultiPageForm = () => {
                     <Input placeholder="Enter target months" {...form.register('targetTime')} />
                   </FormControl>
                   <FormDescription>
-                    Estimated time to achieve your goal in months.
+                    Estimated time to achieve your goal. (in months)
                   </FormDescription>
                   <FormMessage />
                 </FormItem>
