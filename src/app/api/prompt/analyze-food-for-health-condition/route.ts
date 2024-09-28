@@ -1,19 +1,16 @@
 import { genAI } from "@/lib/constants/gemini";
-import { AI } from "@/lib/types/prompt";
 import { NextRequest, NextResponse } from "next/server";
 import { SYSTEM_INSTRUCTIONS } from "@/lib/constants/system-instructions";
 import { getImage } from "@/lib/helpers/image";
 
 export const POST = async (req: NextRequest) => {
   try {
-    const { imageUrl, prompt, mimeType, ai } = await req.json();
+    const { prompt, mimeType, imageUrl } = await req.json();
 
     const model = genAI.getGenerativeModel({
       model: "gemini-1.5-flash",
       systemInstruction:
-        ai === AI.FOOD
-          ? SYSTEM_INSTRUCTIONS.FOOD_AI.ExplainIngredients
-          : SYSTEM_INSTRUCTIONS.PERSONAL_CARE_AI.ExplainIngredients,
+        SYSTEM_INSTRUCTIONS.FOOD_AI.AnalyzeIngredientsForHealthCondition,
     });
 
     const image = await getImage(imageUrl, mimeType);

@@ -9,7 +9,7 @@ export const AiChat = ({
 }) => {
   return (
     <div className="max-w-[75%] rounded-lg text-lg text-left flex">
-      <div className="flex-shrink-0 self-start pt-8">
+      <div className="flex-shrink-0 self-start pt-1">
         <AiChatImage />
       </div>
       <div className="flex-grow">

@@ -157,7 +157,7 @@ const ChatConversation = () => {
           </h1>
         </div>
         <div className="flex flex-col w-full flex-1 items-center gap-8 overflow-y-auto px-8">
-          <div className="flex flex-col space-y-3 w-full lg:w-[80%]">
+          <div className="flex flex-col space-y-8 w-full lg:w-[80%]">
             {chat.history.map((history, index) => (
               <div
                 key={index}

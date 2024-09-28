@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useAuthContext } from "@/contexts/auth-context.provider";
 import { createChat } from "@/firebase/chat-db-requests";
+import { userPromptParts } from "@/lib/helpers/prompt";
 import { ChatType, Sender } from "@/lib/types/chat";
 import { AI } from "@/lib/types/prompt";
 import { UploadButton, UploadResponse } from "@/lib/uploadthing/uploadthing";
@@ -87,19 +88,7 @@ const FeatureCard1 = () => {
       history: [
         {
           role: Sender.User,
-          parts: [
-            {
-              fileData: {
-                // mimeType: image?.mimeType!,
-                // fileUri: image?.uri!,
-                fileUri: imgURL!,
-                mimeType: "image/jpeg",
-              },
-            },
-            {
-              text: prompt,
-            }
-          ],
+          parts: userPromptParts(imgURL, "image/jpeg", prompt),
         },
         {
           role: Sender.Model,

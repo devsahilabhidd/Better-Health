@@ -2,8 +2,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useAuthContext } from "@/contexts/auth-context.provider";
 import { createChat } from "@/firebase/chat-db-requests";
+import { userPromptParts } from "@/lib/helpers/prompt";
 import { ChatType, Sender } from "@/lib/types/chat";
-import { AI } from "@/lib/types/prompt";
 import { UploadButton, UploadResponse } from "@/lib/uploadthing/uploadthing";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -37,13 +37,15 @@ const FeatureCard2 = () => {
   const onSubmit = async () => {
     setIsProcessing(true);
 
+    const promptText = `Analyze Food Ingredients For Health Condition: ${healthCondition}. Should I eat this food item with ingredients - ${prompt}`;
+
     const response = await fetch("/api/prompt/analyze-food-for-health-condition", {
       method: "POST",
       body: JSON.stringify({
-        prompt,
+        healthCondition,
+        prompt: promptText,
         imageUrl: imgURL,
         mimeType: "image/jpeg",
-        ai: AI.FOOD,
       }),
       headers: {
         "Content-Type": "application/json",
@@ -64,17 +66,7 @@ const FeatureCard2 = () => {
       history: [
         {
           role: Sender.User,
-          parts: [
-            {
-              fileData: {
-                fileUri: imgURL!,
-                mimeType: "image/jpeg",
-              },
-            },
-            {
-              text: prompt,
-            }
-          ],
+          parts: userPromptParts(imgURL, "image/jpeg", promptText),
         },
         {
           role: Sender.Model,
@@ -105,7 +97,7 @@ const FeatureCard2 = () => {
           placeholder="e.g. I have diabetes, high blood pressure, etc."
           type="text"
           value={healthCondition}
-          onChange={() => handleHealthConditionChange}
+          onChange={handleHealthConditionChange}
         />
       </div>
       <div className="flex gap-4 items-center">
@@ -120,7 +112,7 @@ const FeatureCard2 = () => {
           placeholder="e.g. apple, banana, etc."
           type="text"
           value={prompt}
-          onChange={() => handlePromptChange}
+          onChange={handlePromptChange}
         />
         <Button
           onClick={onSubmit}

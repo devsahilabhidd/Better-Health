@@ -17,7 +17,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from 'react-hook-form';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { ArrowLeft, ArrowRight, Send } from "lucide-react"
+import { ArrowLeft, ArrowRight, SendHorizonalIcon } from "lucide-react"
 import { Progress } from '@/components/ui/progress';
 import { Textarea } from '@/components/ui/textarea';
 import { Gender, Goal, Preference } from '@/lib/types/diet-plan';
@@ -254,7 +254,7 @@ const MultiPageForm = () => {
                     <SelectContent>
                       <SelectItem value={Goal.LOSE_WEIGHT}>Weight Loss</SelectItem>
                       <SelectItem value={Goal.GAIN_WEIGHT}>Weight Gain</SelectItem>
-                      <SelectItem value={Goal.MAINTAIN_MUSCLE}>Weight Maintain</SelectItem>
+                      <SelectItem value={Goal.MAINTAIN_WEIGHT}>Weight Maintain</SelectItem>
                       <SelectItem value={Goal.GAIN_MUSCLE}>Muscle Gain</SelectItem>
                       <SelectItem value={Goal.MAINTAIN_MUSCLE}>Muscle Maintain</SelectItem>
                     </SelectContent>
@@ -385,11 +385,15 @@ const MultiPageForm = () => {
             Next <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         ) : (
-          <Button type="submit" onClick={form.handleSubmit(onSubmit)} className="ml-auto">
+          <Button
+            type="submit"
+            onClick={form.handleSubmit(onSubmit)}
+            className="ml-auto"
+            disabled={isProcessing}
+          >
             {
               isProcessing ? "Submitting..." : "Submit"
             }
-            <Send className="ml-2 h-4 w-4" />
           </Button>
         )}
       </CardFooter>
