@@ -36,7 +36,7 @@ const FeatureCard5 = () => {
     <div className="w-full flex flex-col gap-8">
       {
         randomFact && (
-          <div className="w-[75%] px-6 py-4 mx-auto bg-app-primary dark:bg-gray-2 rounded-lg">
+          <div className="w-full md:w-[75%] px-6 py-4 mx-auto bg-app-primary dark:bg-gray-2 rounded-lg">
             <h1 className="text-star-white text-base">
               <MarkdownContent
                 markdown={randomFact}
