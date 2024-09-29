@@ -1,9 +1,7 @@
 'use client';
 
 import React, { useState } from "react";
-import { FaRunning } from "react-icons/fa";
 import InputRender from "./input-render";
-import { ModeToggle } from "@/components/toogle";
 import Header from "@/components/header";
 import FeatureCard from "@/components/feature-card";
 

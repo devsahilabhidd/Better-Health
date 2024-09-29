@@ -17,7 +17,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from 'react-hook-form';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { ArrowLeft, ArrowRight, SendHorizonalIcon } from "lucide-react"
+import { ArrowLeft, ArrowRight } from "lucide-react"
 import { Progress } from '@/components/ui/progress';
 import { Textarea } from '@/components/ui/textarea';
 import { Gender, Goal, Preference } from '@/lib/types/diet-plan';

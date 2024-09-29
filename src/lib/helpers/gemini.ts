@@ -1,4 +1,4 @@
-import fs from "fs";
+//import fs from "fs";
 import { GoogleAIFileManager } from "@google/generative-ai/server";
 
 const apiKey = process.env.GEMINI_API_KEY;

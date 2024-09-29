@@ -14,6 +14,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  UserCredential,
 } from "firebase/auth";
 import { db, firebaseAuth } from "@/firebase/firebase";
 import { doc, getDoc, setDoc } from "firebase/firestore";
@@ -22,7 +23,7 @@ import {
   AUTH_ROUTES,
   HOME_ROUTE,
 } from "@/lib/constants/constants";
-import { redirect, useRouter } from "next/navigation";
+import {  useRouter } from "next/navigation";
 import { toast } from "@/hooks/use-toast";
 import { User } from "@/lib/types/user";
 
@@ -55,17 +56,14 @@ export const AuthContextProvider = ({
   children: ReactNode,
 }) => {
   const [user, setUser] = useState<User | null>(null);
-  const [fetchUserPending, setFetchUserPending] = useState(true);
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
-    setFetchUserPending(true);
     const unsubscribe = onAuthStateChanged(firebaseAuth, async (userFb) => {
       if (userFb) {
         await getUser();
       }
-      setFetchUserPending(false);
     });
     return () => unsubscribe();
   }, []);
@@ -90,12 +88,14 @@ export const AuthContextProvider = ({
       });
       await createSession(userCredential.user.uid);
       router.push(HOME_ROUTE);
-    } catch (error: any) {
-      toast({
-        title: "Sign up failed",
-        description: error?.message,
-        variant: "destructive"
-      })
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        toast({
+          title: "Sign up failed",
+          description: error.message,
+          variant: "destructive"
+        });
+      }
       console.error("Sign-up failed", error);
     } finally {
       setLoading(false);
@@ -117,29 +117,33 @@ export const AuthContextProvider = ({
       );
       await createSession(userCredential.user.uid);
       router.push(HOME_ROUTE);
-    } catch (error: any) {
-      toast({
-        title: "Sign in failed",
-        description: error?.message,
-        variant: "destructive"
-      })
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        toast({
+          title: "Sign in failed",
+          description: error.message,
+          variant: "destructive"
+        });
+      }
       console.error("Sign-in failed", error);
     } finally {
       setLoading(false);
     }
   };
 
-  const signInWithGoogle = async () => {
+  const signInWithGoogle = async (): Promise<UserCredential['user']> => {
     const provider = new GoogleAuthProvider();
     try {
       const result = await signInWithPopup(firebaseAuth, provider);
       return result.user;
-    } catch (error: any) {
-      toast({
-        title: "Google sign in failed",
-        description: error?.message,
-        variant: "destructive"
-      })
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        toast({
+          title: "Google sign in failed",
+          description: error.message,
+          variant: "destructive"
+        });
+      }
       console.error("Google sign-in failed", error);
       throw error;
     }
@@ -177,12 +181,14 @@ export const AuthContextProvider = ({
       await removeSession();
       setUser(null);
       router.push(AUTH_ROUTES[0]);
-    } catch (error: any) {
-      toast({
-        title: "Sign out failed",
-        description: error?.message,
-        variant: "destructive"
-      })
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        toast({
+          title: "Sign out failed",
+          description: error.message,
+          variant: "destructive"
+        });
+      }
       console.error("Sign-out failed", error);
     } finally {
       setLoading(false);
@@ -201,12 +207,14 @@ export const AuthContextProvider = ({
           id: userDoc.id,
         });
       }
-    } catch (error: any) {
-      toast({
-        title: "Fetching user details failed",
-        description: error?.message,
-        variant: "destructive"
-      })
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        toast({
+          title: "Fetching user details failed",
+          description: error.message,
+          variant: "destructive"
+        });
+      }
       console.error("Error fetching user details", error);
     }
   };
