@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+// import { useRouter, useSearchParams } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { Button } from '@/components/ui/button';
 import { Loader2 } from 'lucide-react';
@@ -29,9 +29,9 @@ const SigninForm = ({ session }: SigninFormProps) => {
   const [error, setError] = useState<string | null>(null);
   // const [isSubmitting, setIsSubmitting] = useState(false);
   const [isGoogleSignInSubmitting, setIsGoogleSignInSubmitting] = useState(false);
-  const router = useRouter();
-  const searchParams = useSearchParams();
-  const redirectUrl = searchParams.get('redirectUrl');
+  // const router = useRouter();
+  // const searchParams = useSearchParams();
+  // const redirectUrl = searchParams.get('redirectUrl');
 
   const {
     signIn,

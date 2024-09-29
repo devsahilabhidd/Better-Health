@@ -1,9 +1,7 @@
 'use client';
 
 import React, { useState } from "react";
-import { FaRunning } from "react-icons/fa";
 import InputRender from "./input-render";
-import { ModeToggle } from "@/components/toogle";
 import Header from "@/components/header";
 import FeatureCard from "@/components/feature-card";
 
@@ -63,7 +61,7 @@ const FoodPage = () => {
             }
           </div>
         </div>
-        <div className="w-full flex justify-end items-end gap-4 min-h-64 p-0 pb-8 md:p-8">
+        <div className="w-full flex justify-end items-end gap-4 min-h-64 p-0 md:p-8">
           {
             selectedCard && (
               <InputRender id={selectedCard.id} />

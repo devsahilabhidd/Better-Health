@@ -1,4 +1,4 @@
-import { DetailedHTMLProps, HTMLAttributes, PropsWithChildren } from "react";
+import { DetailedHTMLProps, HTMLAttributes } from "react";
 
 interface FeatureCardProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   active?: boolean;

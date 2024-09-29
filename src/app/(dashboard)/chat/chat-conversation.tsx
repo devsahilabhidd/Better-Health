@@ -7,7 +7,7 @@ import { getChatById, updateChatById } from "@/firebase/chat-db-requests";
 import { WEB_APP_NAME } from "@/lib/constants/web";
 import { Chat, Sender } from "@/lib/types/chat";
 
-import { Paperclip, SendHorizonalIcon } from "lucide-react";
+import { SendHorizonalIcon } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { UserChat } from "./userChat";
