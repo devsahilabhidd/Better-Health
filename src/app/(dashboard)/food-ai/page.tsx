@@ -41,8 +41,8 @@ const FoodPage = () => {
   }
 
   return (
-    <div className="flex p-8 gap-4 h-screen bg-app-dark">
-      <div className="flex flex-col items-center w-[80%] gap-36 mx-auto">
+    <div className="flex p-8 gap-4 min-h-screen bg-app-dark">
+      <div className="flex flex-col items-center w-[95%] md:w-[80%] gap-36 mx-auto">
         <div className="flex flex-1 flex-col items-center gap-16">
           <Header />
 
@@ -61,7 +61,7 @@ const FoodPage = () => {
             }
           </div>
         </div>
-        <div className="w-full flex justify-end items-end gap-4 min-h-64 p-8">
+        <div className="w-full flex justify-end items-end gap-4 min-h-64 p-0 pb-8 md:p-8">
           {
             selectedCard && (
               <InputRender id={selectedCard.id} />

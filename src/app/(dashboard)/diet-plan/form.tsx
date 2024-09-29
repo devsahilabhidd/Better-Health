@@ -132,7 +132,7 @@ const MultiPageForm = () => {
     }
 
     setIsProcessing(false);
-    router.push(`/chat?id=${chatId}`);
+    router.push(`/chat?id=${chatId}&type=${ChatType.FOOD_AI}`);
   };
 
   const validateCurrentPage = async () => {

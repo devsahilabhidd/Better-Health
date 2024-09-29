@@ -81,32 +81,35 @@ const FeatureCard1 = () => {
     }
 
     setIsProcessing(false);
-    router.push(`/chat?id=${chatId}`);
+    router.push(`/chat?id=${chatId}&type=${ChatType.PERSONAL_CARE_AI}`);
   };
 
   return (
     <div className="w-full flex flex-col gap-4">
-      <div className="flex gap-4 items-center">
+      <div className="flex flex-col md:flex-row items-start gap-4">
         <UploadButton
           endpoint="imageUploader"
           onClientUploadComplete={handleUploadComplete}
           onUploadError={(error: Error) => alert(`Error: ${error.message}`)}
           className="text-app-primary hover:text-app-primary/90"
         />
-        <Input
-          className="flex-1"
-          placeholder="e.g. shampoo, face wash, etc."
-          type="text"
-          value={prompt}
-          onChange={handlePromptChange}
-        />
-        <Button
-          onClick={onSubmit}
-          disabled={isProcessing || !imgURL && !prompt}
-          variant="app-primary"
-        >
-          {isProcessing ? "Processing..." : "Submit"}
-        </Button>
+        <div className="w-full flex gap-4 items-center">
+
+          <Input
+            className="flex-1"
+            placeholder="e.g. shampoo, face wash, etc."
+            type="text"
+            value={prompt}
+            onChange={handlePromptChange}
+          />
+          <Button
+            onClick={onSubmit}
+            disabled={isProcessing || !imgURL && !prompt}
+            variant="app-primary"
+          >
+            {isProcessing ? "Processing..." : "Submit"}
+          </Button>
+        </div>
       </div>
       <div>
         <p className="text-foreground text-sm">
