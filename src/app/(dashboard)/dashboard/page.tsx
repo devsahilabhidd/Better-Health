@@ -1,10 +1,10 @@
 'use client';
 
 import React from "react";
-import { FaRunning } from "react-icons/fa";
-import { ModeToggle } from "@/components/toogle";
 import { useRouter } from "next/navigation";
 import { ROUTES } from "@/lib/constants/constants";
+import Header from "@/components/header";
+import FeatureCard from "@/components/feature-card";
 
 const FEATURE_CARDS = [
   {
@@ -46,23 +46,17 @@ const Dashboard = () => {
     <div className="flex p-8 gap-4 h-screen bg-app-dark">
       <div className="flex flex-col items-center w-2/3 gap-36 mx-auto">
         <div className="w-full flex flex-1 flex-col items-center gap-16">
-          <h1 className="flex gap-3 text-star-white cursor-pointer text-5xl font-secondary">
-            Better <span className="text-app-primary flex gap-2 items-center">
-              Health <FaRunning size={48} />
-            </span>
-            <ModeToggle />
-          </h1>
+          <Header />
 
           <div className="w-2/3 grid grid-cols-2 gap-6 items-center justify-center">
             {
               FEATURE_CARDS.map((card) => (
-                <div
+                <FeatureCard
                   key={card.id}
-                  className={`flex min-h-24 items-center justify-center text-star-white cursor-pointer p-5 rounded-lg border-4 hover:border-gray-2`}
                   onClick={() => handleCardSelection(card)}
                 >
                   <p className="text-center text-base">{card.description}</p>
-                </div>
+                </FeatureCard>
               ))
             }
           </div>

@@ -123,7 +123,7 @@ const FeatureCard2 = () => {
         </Button>
       </div>
       <div>
-        <h1 className="text-star-white text-sm">
+        <h1 className="text-foreground text-sm">
           Upload an image of the food item or write down about the food item.
         </h1>
       </div>

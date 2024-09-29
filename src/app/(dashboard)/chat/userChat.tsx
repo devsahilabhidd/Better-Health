@@ -8,7 +8,7 @@ export const UserChat = ({
   parts: ChatHistoryPart[],
 }) => {
   return (
-    <div className="max-w-[80%] bg-gray-1 border rounded-lg">
+    <div className="max-w-[80%] bg-accent dark:bg-gray-1 border rounded-lg">
       {
         parts.map((part, index) => {
           if (part.fileData && part.fileData.fileUri) {

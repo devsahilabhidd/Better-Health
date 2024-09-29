@@ -1,5 +1,6 @@
 'use client';
 
+import Header from "@/components/header";
 import { ModeToggle } from "@/components/toogle";
 import { Button } from "@/components/ui/button";
 import { useAuthContext } from "@/contexts/auth-context.provider";
@@ -15,13 +16,8 @@ export default function Home() {
   } = useAuthContext();
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-10">
-      <h1 className="flex gap-3 text-star-white cursor-pointer text-5xl font-secondary">
-        Better <span className="text-app-primary flex gap-2 items-center">
-          Health <FaRunning size={48} />
-        </span>
-        <ModeToggle />
-      </h1>
+    <div className="bg-background flex flex-col items-center justify-center min-h-screen py-10">
+      <Header />
       <div className="flex flex-1 flex-col items-center justify-center">
         <div className="flex gap-8">
           {
