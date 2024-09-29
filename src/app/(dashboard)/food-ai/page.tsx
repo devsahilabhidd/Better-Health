@@ -61,7 +61,7 @@ const FoodPage = () => {
             }
           </div>
         </div>
-        <div className="w-full flex justify-end items-end gap-4 min-h-64 p-0 pb-8 md:p-8">
+        <div className="w-full flex justify-end items-end gap-4 min-h-64 p-0 md:p-8">
           {
             selectedCard && (
               <InputRender id={selectedCard.id} />
