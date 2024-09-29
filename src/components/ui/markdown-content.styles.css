@@ -27,6 +27,7 @@
 
 .markdown-container th {
   background-color: var(--app-primary);
+  color: var(--app-primary-foreground);
   border: 1px solid var(--border);
   padding: 10px 20px;
 }
@@ -36,5 +37,5 @@
 }
 
 .markdown-container tr:nth-child(even) {
-  background-color: var(--gray-1);
+  background-color: var(--table-nth-child);
 }
