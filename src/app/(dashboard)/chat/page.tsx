@@ -1,6 +1,6 @@
 'use client';
 
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import ChatConversation from "./chat-conversation";
 import ChatSidebar from "./chat-sidebar";
 import { useEffect, useState } from "react";
@@ -19,6 +19,9 @@ const ChatPage = () => {
   const {
     user
   } = useAuthContext();
+  const params = useSearchParams();
+  const id = params.get("id");
+  const type = params.get("type");
 
   const userId = user?.id;
 
@@ -26,11 +29,20 @@ const ChatPage = () => {
     const response = await getChatsByUserId(userId);
 
     setChats(response);
-    const filteredResponse = response.filter((chat) => chat.type === selectedType);
-    setFilteredChats(response);
 
-    if (filteredResponse.length !== 0) {
-      router.replace(`/chat?id=${filteredResponse[0].id}`);
+    let chatType = selectedType;
+    if (type) {
+      chatType = type as ChatType;
+      setSelectedType(chatType);
+    }
+
+    const filteredResponse = response.filter((chat) => chat.type === chatType);
+    setFilteredChats(filteredResponse);
+
+    if (filteredResponse.length !== 0 && id) {
+      router.replace(`/chat?id=${id}&type=${chatType}`);
+    } else if (filteredResponse.length !== 0) {
+      router.replace(`/chat?id=${filteredResponse[0].id}&type=${chatType}`);
     }
 
     setIsChatsLoading(false);
