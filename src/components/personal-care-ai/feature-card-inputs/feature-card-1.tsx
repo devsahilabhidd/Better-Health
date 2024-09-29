@@ -81,7 +81,7 @@ const FeatureCard1 = () => {
     }
 
     setIsProcessing(false);
-    router.push(`/chat?id=${chatId}`);
+    router.push(`/chat?id=${chatId}&type=${ChatType.PERSONAL_CARE_AI}`);
   };
 
   return (
