@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# My Better Health AI
 
-## Getting Started with better health ai
+### Your Personal AI-Powered Health Companion
 
-First, run the development server:
+**My Better Health AI** is an intelligent health management system that leverages AI to monitor, guide, and improve users' health habits. By combining cutting-edge machine learning algorithms with real-time data analytics, it provides users with personalized recommendations for maintaining a healthier lifestyle.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Table of Contents
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Technologies Used](#technologies-used)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Features
 
-To learn more about Next.js, take a look at the following resources:
+- **Personalized Health Monitoring**: Tracks user health metrics like heart rate, physical activity, sleep patterns, and diet through smart wearables and manual inputs.
+- **AI-Driven Recommendations**: Provides custom health tips based on individual data, such as exercise routines, meal suggestions, and mental wellness activities.
+- **Goal Setting & Tracking**: Helps users set health goals (e.g., weight loss, improved sleep) and provides progress updates.
+- **Data Analytics**: Visualizes health trends with graphs and statistics to help users understand their overall well-being.
+- **Reminders & Notifications**: Sends reminders for medications, workouts, or hydration based on the user’s schedule.
+- **Integration with Devices**: Syncs with various fitness trackers, smartwatches, and health apps to collect and aggregate data.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Installation
 
-## Deploy on Vercel
+To set up **My Better Health AI** on your local environment, follow these steps:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/devsahilabhidd/Better-Health.git
