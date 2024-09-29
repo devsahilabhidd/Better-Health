@@ -7,6 +7,8 @@ import { useEffect, useState } from "react";
 import { Chat, ChatType } from "@/lib/types/chat";
 import { useAuthContext } from "@/contexts/auth-context.provider";
 import { getChatsByUserId } from "@/firebase/chat-db-requests";
+import { Button } from "@/components/ui/button";
+import { HOME_ROUTE } from "@/lib/constants/constants";
 
 const ChatPage = () => {
   const [chats, setChats] = useState<Chat[]>([]);
@@ -55,8 +57,14 @@ const ChatPage = () => {
 
   if (chats.length === 0) {
     return (
-      <div className="w-full flex items-center justify-center h-full">
+      <div className="w-full flex flex-col gap-6 items-center justify-center h-full">
         <p>No chats found</p>
+        <Button
+          variant="app-primary"
+          onClick={() => router.push(HOME_ROUTE)}
+        >
+          Start first chat
+        </Button>
       </div>
     );
   }

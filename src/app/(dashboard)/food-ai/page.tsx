@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import { FaRunning } from "react-icons/fa";
 import InputRender from "./input-render";
 import { ModeToggle } from "@/components/toogle";
+import Header from "@/components/header";
+import FeatureCard from "@/components/feature-card";
 
 const FOOD_AI_FEATURE_CARDS = [
   {
@@ -44,20 +46,19 @@ const FoodPage = () => {
     <div className="flex p-8 gap-4 h-screen bg-app-dark">
       <div className="flex flex-col items-center w-[80%] gap-36 mx-auto">
         <div className="flex flex-1 flex-col items-center gap-16">
-          <h1 className="flex gap-3 text-star-white cursor-pointer text-5xl font-secondary">
-            Better <span className="text-app-primary flex gap-2 items-center">Health <FaRunning size={48} /></span>
-            <ModeToggle /></h1>
+          <Header />
 
           <div className="flex flex-wrap gap-6 items-center justify-center">
             {
               FOOD_AI_FEATURE_CARDS.map((card) => (
-                <div
+                <FeatureCard
+                  active={selectedCard?.id === card.id}
                   key={card.id}
-                  className={`flex max-w-96 min-h-24 items-center gap-3 text-star-white cursor-pointer p-5 rounded-lg border-4 ${selectedCard?.id === card.id ? 'border-app-primary' : 'border-gray-1 hover:border-gray-2'}`}
                   onClick={() => handleCardSelection(card)}
+                  width="max-w-96"
                 >
                   <p className="text-center text-base">{card.description}</p>
-                </div>
+                </FeatureCard>
               ))
             }
           </div>

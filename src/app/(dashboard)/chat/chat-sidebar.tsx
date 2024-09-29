@@ -24,7 +24,7 @@ const ChatSidebar: React.FC<ChatSidebarProps> = ({
   const id = params.get("id");
 
   return (
-    <nav className="w-1/5 bg-foreground flex flex-col shadow-md overflow-y-auto pb-8">
+    <nav className="w-1/5 flex flex-col shadow-md overflow-y-auto pb-8">
       <div className="sticky top-0  z-10 border-b border-gray-200">
         <h1 className="font-bold text-2xl p-6">Chat History</h1>
         <Select
@@ -48,7 +48,7 @@ const ChatSidebar: React.FC<ChatSidebarProps> = ({
           <li key={chat.id}>
             <Link href={`/chat?id=${chat.id}`} className="cursor-pointer">
               <Card
-                className={`${chat.id === id as string ? 'bg-app-primary hover:opacity-85' : 'hover:bg-gray-1'} transition duration-150 ease-in-out`}
+                className={`${chat.id === id as string ? 'bg-app-primary hover:opacity-85' : 'hover:bg-accent dark:hover:bg-gray-1'} transition duration-150 ease-in-out`}
               >
                 <CardContent className="p-4">
                   <span className="">{chat.title}</span>

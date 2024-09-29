@@ -107,7 +107,7 @@ const FeatureCard4 = () => {
         </Button>
       </div>
       <div>
-        <p className="text-star-white text-sm">
+        <p className="text-foreground text-sm">
           Upload an image of the food item or write down about the food item.
         </p>
       </div>
