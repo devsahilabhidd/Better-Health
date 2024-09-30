@@ -25,8 +25,8 @@ interface SociaNetworkslProps {
 const teamList: TeamProps[] = [
   {
     imageUrl: 'https://i.ibb.co/PrHkLzW/dev.jpg',
-    name: 'Devender ',
-    position: 'Product Manager',
+    name: 'Devender Singh Rathore',
+    position: 'Software engineer',
     description:
       'Devender ensures that our vision aligns with user needs, overseeing the project from concept to completion and bringing strategic insight to the team.',
     socialNetworks: [
@@ -46,14 +46,18 @@ const teamList: TeamProps[] = [
   },
   {
     imageUrl: 'https://i.ibb.co/BC71sZx/sahil.jpg',
-    name: 'Sahil',
-    position: 'Frontend Developer',
+    name: 'Sahil Qureshi',
+    position: 'Software engineer',
     description:
       'Sahil brings the user interface to life, crafting intuitive and engaging designs that improve user experience and accessibility.',
     socialNetworks: [
       {
         name: 'Linkedin',
         url: 'https://www.linkedin.com/in/sahil-quraishi-b40287264/',
+      },
+      {
+        name: 'Github',
+        url: 'https://github.com/sahilq312',
       },
       {
         name: 'Instagram',
@@ -63,8 +67,8 @@ const teamList: TeamProps[] = [
   },
   {
     imageUrl: 'https://i.ibb.co/1T9ffr6/abhinav.jpg',
-    name: 'Abhinav',
-    position: 'Tech Lead',
+    name: 'Abhinav Malviya',
+    position: 'Software engineer',
     description:
       'Abhinav leads our development efforts, making crucial technical decisions and guiding the team in building scalable and robust solutions.',
     socialNetworks: [
@@ -88,14 +92,18 @@ const teamList: TeamProps[] = [
   },
   {
     imageUrl: 'https://i.ibb.co/KFGfF7s/photo.jpg',
-    name: 'Danish',
-    position: 'Backend Developer',
+    name: 'Danish Deshmukh',
+    position: 'Software engineer',
     description:
       'Maintains backend systems to keep everything running smoothly.',
     socialNetworks: [
       {
         name: 'Linkedin',
         url: 'https://www.linkedin.com/in/danish-deshmukh-3255082a8/',
+      },
+      {
+        name: 'Github',
+        url: 'https://github.com/Danish-Deshmukh',
       },
     ],
   },
@@ -112,12 +120,12 @@ export const Team = () => {
 
       case 'Instagram':
         return <Instagram size='20' />;
-      
+
       case 'Twitter':
-        return <Twitter size = '20'/>;
-      
+        return <Twitter size='20' />;
+
       case 'Github':
-        return < Github size= '20'/>
+        return < Github size='20' />
     }
   };
 
