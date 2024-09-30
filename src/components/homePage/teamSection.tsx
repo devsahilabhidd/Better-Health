@@ -7,7 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import { Facebook, Instagram, Linkedin } from 'lucide-react';
+import { Facebook, Github, Instagram, Linkedin, Twitter } from 'lucide-react';
 
 interface TeamProps {
   imageUrl: string;
@@ -33,6 +33,14 @@ const teamList: TeamProps[] = [
       {
         name: 'Linkedin',
         url: 'https://www.linkedin.com/in/devender-singh-rathore/',
+      },
+      {
+        name: 'Github',
+        url: 'https://github.com/dev-rathore',
+      },
+      {
+        name: 'Twitter',
+        url: 'https://twitter.com/tweetedbydev',
       },
     ],
   },
@@ -64,7 +72,14 @@ const teamList: TeamProps[] = [
         name: 'Linkedin',
         url: 'https://www.linkedin.com/in/abhinavmalviya58/',
       },
-
+      {
+        name: 'Twitter',
+        url: 'https://x.com/AbhinavMalviy58',
+      },
+      {
+        name: 'Github',
+        url: 'https://github.com/AbhinavMalviya58',
+      },
       {
         name: 'Instagram',
         url: 'https://www.instagram.com/abhinavmalviya58/?hl=en',
@@ -97,6 +112,12 @@ export const Team = () => {
 
       case 'Instagram':
         return <Instagram size='20' />;
+      
+      case 'Twitter':
+        return <Twitter size = '20'/>;
+      
+      case 'Github':
+        return < Github size= '20'/>
     }
   };
 
