@@ -24,7 +24,7 @@ export default function Home() {
       {/* <TypeWritterEffect/> */}
 
       <div className='flex flex-1 w-full min-h-[90vh] flex-col items-center justify-center '>
-        <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
+        <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center mt-10'>
           <h1 className='text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-5xl md:text-6xl'>
             Welcome to <span className='text-app-primary'>Better Health</span> –
             Your Personalized Health Assistant
