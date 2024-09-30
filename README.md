@@ -1,4 +1,4 @@
-# My Better Health AI
+# Better Health AI
 
 ### Your Personal AI-Powered Health Companion
 
