@@ -7,7 +7,7 @@ import { getChatById, updateChatById } from "@/firebase/chat-db-requests";
 import { WEB_APP_NAME } from "@/lib/constants/web";
 import { Chat, Sender } from "@/lib/types/chat";
 
-import { SendHorizonalIcon } from "lucide-react";
+import { Menu, SendHorizonalIcon } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { UserChat } from "./userChat";
@@ -16,7 +16,13 @@ import { ROUTES } from "@/lib/constants/constants";
 import { useAuthContext } from "@/contexts/auth-context.provider";
 import { AI } from "@/lib/types/prompt";
 
-const ChatConversation = () => {
+interface ChatConversationProps {
+  toggleSidebar: () => void;
+}
+
+const ChatConversation: React.FC<ChatConversationProps> = ({
+  toggleSidebar,
+}) => {
   const [chat, setChat] = useState<Chat | null>(null);
   const [message, setMessage] = useState<string>("");
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -147,16 +153,24 @@ const ChatConversation = () => {
 
   return (
     <div
-      className="flex py-8 gap-4 h-screen w-full"
+      className="flex lg:px-0 py-8 gap-4 h-screen w-full"
       onKeyDown={(e) => e.key === "Enter" && !e.shiftKey && handleSubmission()}
     >
       <div className="flex flex-col w-full items-center gap-8 mx-auto">
-        <div className="w-full lg:w-[80%]">
-          <h1 className="text-center text-foreground cursor-pointer text-3xl font-secondary">
+        <div className="w-full flex px-8 items-center lg:w-[80%]">
+          <Button
+            className="visible lg:hidden"
+            onClick={toggleSidebar}
+            size="icon"
+            variant="outline"
+          >
+            <Menu className="h-4 w-4" />
+          </Button>
+          <h1 className="flex-1 text-center text-foreground cursor-pointer text-2xl lg:text-3xl font-secondary">
             {chat.title}
           </h1>
         </div>
-        <div className="flex flex-col w-full flex-1 items-center gap-8 overflow-y-auto px-8">
+        <div className="flex flex-col px-8 w-full flex-1 items-center gap-8 overflow-y-auto">
           <div className="flex flex-col space-y-8 w-full lg:w-[80%]">
             {chat.history.map((history, index) => (
               <div
@@ -178,7 +192,7 @@ const ChatConversation = () => {
           </div>
           <div ref={messagesEndRef} />
         </div>
-        <div className="w-full lg:w-[80%] flex flex-col gap-4">
+        <div className="w-full lg:w-[80%] flex flex-col px-8 gap-4">
           {isProcessing && (
             <div className="flex items-center justify-center">
               <span className="text-white">Processing...</span>
