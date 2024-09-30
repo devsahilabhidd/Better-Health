@@ -21,7 +21,7 @@ export function HomePageCard() {
 const DummyContent = () => {
   return (
     <>
-      {[...new Array(3).fill(1)].map((_, index) => {
+      {[...new Array(0).fill(0)].map((_, index) => {
         return (
           <div
             key={'dummy-content' + index}

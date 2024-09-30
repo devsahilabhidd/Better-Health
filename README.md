@@ -2,7 +2,7 @@
 
 ### Your Personal AI-Powered Health Companion
 
-**My Better Health AI** is an intelligent health management system that leverages AI to monitor, guide, and improve users' health habits. By combining cutting-edge machine learning algorithms with real-time data analytics, it provides users with personalized recommendations for maintaining a healthier lifestyle .
+**Better Health AI** is an intelligent health management system that leverages AI to monitor, guide, and improve users' health habits. By combining cutting-edge machine learning algorithms with real-time data analytics, it provides users with personalized recommendations for maintaining a healthier lifestyle .
 
 
 ---
