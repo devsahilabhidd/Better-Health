@@ -11,11 +11,10 @@
 
 - [Features](#features)
 - [Installation](#installation)
-- [Usage](#usage)
+- [Architecture Diagram](#architecture-diagram)
 - [Technologies Used](#technologies-used)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
+
+
 
 ---
 

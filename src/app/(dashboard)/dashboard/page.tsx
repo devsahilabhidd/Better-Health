@@ -4,13 +4,14 @@
 //import FeatureCard from "@/components/feature-card";
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import {  ChevronRight } from "lucide-react"
+import {  ChevronRight} from "lucide-react"
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
 import { ModeToggle } from "@/components/toogle"
 import { ROUTES } from "@/lib/constants/constants"
 import { useRouter } from "next/navigation"
 import { LandingPageFooter } from "@/components/homePage/homeFooter";
+import Link from "next/link"
 
 export default function AnimatedCardOptions() {
   const router = useRouter();
@@ -91,8 +92,8 @@ export default function AnimatedCardOptions() {
     <div className="min-h-screen flex flex-col items-center bg-gradient-to-b from-green-50 to-white dark:from-background dark:to-background">
       <header className="shadow-md bg-background  w-full">
         <div className="container mx-auto py-6 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-          <h1 className="text-3xl flex font-bold gap-2">Better <span className="text-app-primary flex gap-2 items-center">
-          Health </span></h1>
+          <Link href={"/"} className="text-3xl flex font-bold gap-2">Better <span className="text-app-primary flex gap-2 items-center">
+          Health </span></Link>
           <ModeToggle />
         </div>
       </header>
