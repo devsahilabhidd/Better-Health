@@ -22,6 +22,9 @@ const ChatUI = () => {
   const params = useSearchParams();
   const id = params.get("id");
   const type = params.get("type");
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
 
   const userId = user?.id;
 
@@ -95,9 +98,13 @@ const ChatUI = () => {
         filteredChats={filteredChats}
         selectedType={selectedType}
         setSelectedType={setSelectedType}
+        toggleSidebar={toggleSidebar}
+        isSidebarOpen={isSidebarOpen}
       />
       <main className="flex-1 overflow-y-auto ">
-        <ChatConversation />
+        <ChatConversation
+          toggleSidebar={toggleSidebar}
+        />
       </main>
     </>
   );

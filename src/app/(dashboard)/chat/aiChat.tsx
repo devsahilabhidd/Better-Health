@@ -8,11 +8,11 @@ export const AiChat = ({
   parts: ChatHistoryPart[],
 }) => {
   return (
-    <div className="max-w-[75%] rounded-lg text-lg text-left flex">
+    <div className="max-w-[90%] md:max-w-[80%] rounded-lg text-lg text-left flex">
       <div className="flex-shrink-0 self-start pt-1">
         <AiChatImage />
       </div>
-      <div className="flex-grow">
+      <div className="flex-grow overflow-x-auto">
         <MarkdownContent
           markdown={parts.map((part) => part.text).join("\n")}
         />
