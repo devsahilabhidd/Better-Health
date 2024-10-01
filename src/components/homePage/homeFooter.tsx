@@ -22,7 +22,7 @@ export const LandingPageFooter = () => {
           <div>
             <a
               rel='noreferrer noopener'
-              href='#'
+              href='https://github.com/devsahilabhidd'
               className='opacity-60 hover:opacity-100'
             >
               Github
@@ -32,20 +32,10 @@ export const LandingPageFooter = () => {
           <div>
             <a
               rel='noreferrer noopener'
-              href='#'
+              href='https://x.com/AbhinavMalviy58'
               className='opacity-60 hover:opacity-100'
             >
               Twitter
-            </a>
-          </div>
-
-          <div>
-            <a
-              rel='noreferrer noopener'
-              href='#'
-              className='opacity-60 hover:opacity-100'
-            >
-              Dribbble
             </a>
           </div>
         </div>
@@ -72,15 +62,6 @@ export const LandingPageFooter = () => {
             </a>
           </div>
 
-          <div>
-            <a
-              rel='noreferrer noopener'
-              href='#'
-              className='opacity-60 hover:opacity-100'
-            >
-              Desktop
-            </a>
-          </div>
         </div>
 
         <div className='flex flex-col gap-2'>
@@ -92,16 +73,6 @@ export const LandingPageFooter = () => {
               className='opacity-60 hover:opacity-100'
             >
               Features
-            </a>
-          </div>
-
-          <div>
-            <a
-              rel='noreferrer noopener'
-              href='#'
-              className='opacity-60 hover:opacity-100'
-            >
-              Pricing
             </a>
           </div>
 
@@ -131,35 +102,26 @@ export const LandingPageFooter = () => {
           <div>
             <a
               rel='noreferrer noopener'
-              href='#'
+              href='https://discord.gg/2uM2he6GGB'
               className='opacity-60 hover:opacity-100'
             >
               Discord
             </a>
           </div>
 
-          <div>
-            <a
-              rel='noreferrer noopener'
-              href='#'
-              className='opacity-60 hover:opacity-100'
-            >
-              Twitch
-            </a>
-          </div>
         </div>
       </section>
 
       <section className='container pb-14 text-center'>
         <h3>
-          &copy; 2024 Landing page made by{' '}
+          &copy; 2024 All rights reserved.{' '}
           <a
             rel='noreferrer noopener'
             target='_blank'
             href='https://www.linkedin.com/in/sahil-quraishi-b40287264/'
             className='text-primary transition-all border-primary hover:border-b-2'
           >
-            Sahil Quraishi
+            Wushang Clan
           </a>
         </h3>
       </section>
