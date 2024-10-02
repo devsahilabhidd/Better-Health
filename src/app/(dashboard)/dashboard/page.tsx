@@ -11,11 +11,16 @@ import { ModeToggle } from "@/components/toogle"
 import { ROUTES } from "@/lib/constants/constants"
 import { useRouter } from "next/navigation"
 import { LandingPageFooter } from "@/components/homePage/homeFooter";
-import Link from "next/link"
-
+import Link from "next/link";
+import { useAuthContext } from "@/contexts/auth-context.provider"
 export default function AnimatedCardOptions() {
   const router = useRouter();
   const [isLoaded, setIsLoaded] = useState(false)
+  const { getUser } = useAuthContext();
+  
+  useEffect(() => {
+    getUser()
+  }, [])
 
   useEffect(() => {
     setIsLoaded(true)
