@@ -14,7 +14,7 @@ export async function createSession(userId: string) {
 }
 
 export async function getSession() {
-  const userId = cookies().get(SESSION_COOKIE_NAME);
+  const userId = await cookies().get(SESSION_COOKIE_NAME);
   return userId;
 }
 
